@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -46,35 +47,40 @@ const TeamCard: React.FC = () => {
       </Head>
 
       {/* Header */}
-      <div className="flex items-center space-x-4 md:space-x-5 lg:space-x-6 justify-center">
+      <div className="flex flex-col items-center mt-12 mb-6">
         <Image
-          className="w-8 h-8 rounded-full prevent-default md:w-10 lg:w-12 md:h-10 lg:h-12"
+          className="w-16 h-16 rounded-full"
           src="/images/crystopia.png"
           alt="Crystopia.net"
-          sizes="(max-width: 768px) 32px, (max-width: 1024px) 40px, 48px"
-          width={48}
-          height={48}
+          width={64}
+          height={64}
         />
-        <h1 className="text-5xl">Crystopia.net | Team</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mt-4 text-white">
+          Meet the Crystopia Team
+        </h1>
+        <p className="text-gray-400 mt-2 max-w-xl text-center">
+          The people behind the magic – developers, moderators, creatives and
+          more.
+        </p>
       </div>
 
       {/* Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg p-6 hover:scale-105 transition-transform duration-300"
+              className="bg-[#1a1a1a] ring-1 ring-[#2c2c2c] hover:ring-[#78D5F5]/50 rounded-2xl shadow-xl p-6 transition-all duration-300 hover:scale-[1.03]"
             >
               <div className="flex flex-col items-center text-center">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  width={160}
-                  height={160}
-                  className="rounded-full shadow-md mb-4"
+                  width={120}
+                  height={120}
+                  className="rounded-full shadow-md mb-4 ring-2 ring-[#2a2a2a]"
                 />
-                <h3 className={`text-2xl font-semibold ${member.textcolor}`}>
+                <h3 className={`text-xl font-semibold ${member.textcolor}`}>
                   {member.name}
                 </h3>
                 <span
@@ -82,7 +88,7 @@ const TeamCard: React.FC = () => {
                 >
                   {member.title}
                 </span>
-                <p className="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                <p className="mt-4 text-gray-400 text-sm leading-relaxed">
                   {member.description}
                 </p>
               </div>
@@ -90,28 +96,29 @@ const TeamCard: React.FC = () => {
           ))}
         </div>
 
+        {/* Call to Action */}
         <section>
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <p className="text-gray-500 dark:text-gray-400">
               Interested in joining our team?{" "}
               <Link
                 href="https://cloud.xyzjesper.dev/apps/forms/s/pQK35jfXFDeo43E9rX6DdfZY"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-400 hover:underline"
               >
-                Click here to fill out the application form
+                Apply here
               </Link>{" "}
-              and apply! Or join our{" "}
+              or hop into our{" "}
               <Link
                 href="https://crystopia.link/discord"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 Discord
               </Link>{" "}
-              and ask in xyzjesper for more information.
+              to learn more.
             </p>
           </div>
         </section>

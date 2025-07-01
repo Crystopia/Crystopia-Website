@@ -42,7 +42,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="antialiased bg-background text-foreground font-minecraftseven">
+      <body className="antialiased text-foreground bg-[#111]">
         <ToastContainer
           position="bottom-center"
           autoClose={500}
@@ -55,14 +55,25 @@ export default function RootLayout({
         <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-11/12 md:w-2/3">
           <Card className="bg-[#111] border border-[#78D5F5]/30 shadow-lg p-4">
             <div className="flex justify-between items-center">
-              <h1 className="text-xl font-bold text-[#78D5F5] tracking-wide">
-                Crystopia
-              </h1>
+              <Image
+                onClick={() => (window.location.href = "/")}
+                src={"/images/crystopia.png"}
+                alt="Crystopia Logo"
+                width={400}
+                height={400}
+                className="w-16 h-16 rounded-full cursor-pointer transition-transform hover:scale-105"
+              />{" "}
+              <Link
+                href={"/play"}
+                className="transition-all hover:scale-105 font-bold text-lg"
+              >
+                Join the Crystopia community!
+              </Link>
               <Sheet>
                 <SheetTrigger asChild>
                   <Button
                     variant="outline"
-                    className="md:hidden border-[#78D5F5] text-[#78D5F5]"
+                    className="md:hidden border-[#78D5F5] "
                   >
                     <svg
                       className="w-6 h-6"
@@ -79,7 +90,7 @@ export default function RootLayout({
                     </svg>
                   </Button>
                 </SheetTrigger>
-                <SheetContent className="bg-[#0b1823] text-[#78D5F5]">
+                <SheetContent className="bg-[#0b1823] text-white">
                   <nav className="flex flex-col gap-4 mt-8">
                     {navItems.map(({ href, label, icon }) => (
                       <Link
@@ -94,13 +105,12 @@ export default function RootLayout({
                   </nav>
                 </SheetContent>
               </Sheet>
-
               <nav className="hidden md:flex gap-4">
                 {navItems.map(({ href, label, icon }) => (
                   <Link
                     key={label}
                     href={href}
-                    className="flex items-center gap-2 px-4 py-2 rounded-md text-[#78D5F5] bg-[#0b1823] hover:scale-105 transition-all border border-[#78D5F5]"
+                    className="flex items-center gap-2 px-4 py-2 rounded-md bg-[#0b1823] hover:scale-105 transition-all border border-[#78D5F5]"
                   >
                     <Image src={icon} alt={label} width={24} height={24} />
                     {label}
@@ -112,7 +122,7 @@ export default function RootLayout({
                     toast("Copied IP to clipboard", { type: "success" });
                     navigator.clipboard.writeText("crystopia.net");
                   }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-md text-[#78D5F5] bg-[#0b1823] hover:scale-105 transition-all border border-[#78D5F5]"
+                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-[#0b1823] hover:scale-105 transition-all border border-[#78D5F5]"
                 >
                   <Image
                     src="/icons/copy-ip.png"
@@ -166,6 +176,7 @@ export default function RootLayout({
             <Link href="/legal/imprint">Imprint</Link>
             <Link href="/legal/privacy">Privacy</Link>
             <Link href="/legal/terms">Terms</Link>
+            <Link href="/team">Team</Link>
           </div>
         </footer>
       </body>

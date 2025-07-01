@@ -18,15 +18,15 @@ interface Post {
 
 const HomePage: NextPage = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [lang, setLang] = useState<string>(".en");
+  const [lang, setLang] = useState<string>("en");
 
   useEffect(() => {
     async function fetchPosts() {
       const url =
         "https://raw.githubusercontent.com/Crystopia/Content/refs/heads/main/website/blog/bloglist.json";
 
-      if (navigator.language === "de-DE") setLang(".de");
-      else setLang(".en");
+      if (navigator.language === "de-DE") setLang("de");
+      else setLang("en");
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -104,7 +104,7 @@ const HomePage: NextPage = () => {
                 whileHover={{ scale: 1.03 }}
                 className="mx-auto max-w-3xl bg-[#1a1a1a] border border-[#78D5F5] rounded-2xl overflow-hidden shadow-lg cursor-pointer"
               >
-                <Link href={`/blog/${latestPost.slug}${lang}`}>
+                <Link href={`/blog/${latestPost.slug}?lang=${lang}`}>
                   <Image
                     src={latestPost.image}
                     alt={latestPost.title}
