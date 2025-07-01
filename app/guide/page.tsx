@@ -1,9 +1,10 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+"use client";
+import { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 interface Guide {
   title: string;
@@ -17,14 +18,14 @@ interface Guide {
 
 const GuidePage: NextPage = () => {
   const [guides, setGuides] = useState<Guide[]>([]);
-  const [lang, setLang] = useState<string>('.en');
+  const [lang, setLang] = useState<string>(".en");
 
   useEffect(() => {
     const fetchGuides = async () => {
       try {
         setGuides([]);
       } catch (error) {
-        console.error('Error fetching guides data:', error);
+        console.error("Error fetching guides data:", error);
       }
     };
     fetchGuides();
@@ -81,7 +82,8 @@ const GuidePage: NextPage = () => {
                 <Link
                   href={`/guides/${guide.slug}${lang}`}
                   className="block h-full"
-                  legacyBehavior>
+                  legacyBehavior
+                >
                   {/* Image */}
                   <div className="relative w-full h-48 sm:h-56 md:h-48 overflow-hidden">
                     <Image
