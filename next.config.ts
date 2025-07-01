@@ -26,7 +26,6 @@ const nextConfig: NextConfig = {
       destination: '/blog/:slug',
       permanent: true,
     },
-    
   ],
   images: {
     remotePatterns: [
