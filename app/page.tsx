@@ -72,15 +72,6 @@ const HomePage: NextPage = () => {
             <p className="text-lg md:text-xl text-gray-300 mt-4 max-w-2xl">
               A Minecraft universe where creativity knows no bounds.
             </p>
-
-            <motion.div whileHover={{ scale: 1.05 }} className="mt-6">
-              <Button
-                asChild
-                className="bg-[#78D5F5] text-black hover:bg-[#62c2e6]"
-              >
-                <Link href="/blog">Read Our Blog</Link>
-              </Button>
-            </motion.div>
           </div>
         </section>
 
@@ -130,6 +121,15 @@ const HomePage: NextPage = () => {
                 </Link>
               </motion.div>
             )}
+
+            <motion.div whileHover={{ scale: 1.05 }} className="mt-6">
+              <Button
+                asChild
+                className="bg-[#7c8d92] text-black hover:bg-[#62c2e6] transition duration-300"
+              >
+                <Link href="/blog">Read More</Link>
+              </Button>
+            </motion.div>
           </div>
         </section>
 
@@ -140,7 +140,8 @@ const HomePage: NextPage = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
+              exit={{ opacity: 0, x: -40 }}
             >
               <Image
                 src="/images/discord.png"
@@ -155,7 +156,8 @@ const HomePage: NextPage = () => {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
+              exit={{ opacity: 0, x: -40 }}
             >
               <h2 className="text-4xl text-[#78D5F5] mb-6">
                 What is Crystopia?

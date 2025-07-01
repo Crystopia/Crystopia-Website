@@ -202,6 +202,7 @@ const HomePage: NextPage = () => {
               "Please select a guide from the sidebar."}
           </p>
         </header>
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
