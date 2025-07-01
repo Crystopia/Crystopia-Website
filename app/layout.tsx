@@ -40,6 +40,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
           rel="stylesheet"
         />
+        <title>Crystopia - A Minecraft Server</title>
       </head>
 
       <body className="antialiased text-foreground bg-[#111]">
