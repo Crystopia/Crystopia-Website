@@ -1,31 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-@font-face {
-  font-family: "MinecraftSeven";
-  src: url("../public/fonts/MinecraftSeven_2.ttf");
-  font-display: swap;
-}
-
 h1 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }
 
 h2 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }
 
 h3 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }
 
 h4 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }
 
 h5 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }
 
 h6 {
-  font-family: "MinecraftSeven";
+  font-family: var(--font-minecraftseven);
 }

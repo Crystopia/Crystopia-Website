@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import localFont from "next/font/local";
 
 import "./globals.css";
 import "../styles/font.css";
@@ -17,6 +18,11 @@ const navItems = [
   { href: "/blog", label: "Blog", icon: "/icons/blog.new.png" },
   { href: "/guide", label: "Guide", icon: "/icons/calendar.png" },
 ];
+
+const MinecraftSeven = localFont({
+  src: "../public/fonts/MinecraftSeven_2.ttf",
+  variable: "--font-minecraftseven",
+});
 
 export default function RootLayout({
   children,
@@ -43,7 +49,9 @@ export default function RootLayout({
         <title>Crystopia - A Minecraft Server</title>
       </head>
 
-      <body className="antialiased text-foreground bg-[#111]">
+      <body
+        className={`antialiased text-foreground bg-[#111] ${MinecraftSeven.variable}`}
+      >
         <ToastContainer
           position="bottom-center"
           autoClose={500}
