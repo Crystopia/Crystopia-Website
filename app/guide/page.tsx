@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Markdown from "markdown-to-jsx";
@@ -29,14 +28,15 @@ const HomePage: NextPage = () => {
   const [expandedTypes, setExpandedTypes] = useState<string[]>([]);
   const [selectedGuide, setSelectedGuide] = useState<Guide | null>(null);
   const [selectedGuideContent, setSelectedGuideContent] = useState<string>("");
-
-  const searchParams = useSearchParams();
-  const typeFilter = searchParams.get("type");
+  const [typeFilter, setTypeFilter] = useState<string>("");
 
   // Fetch list + guide content on mount
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        const typeFilter =
+          new URLSearchParams(window.location.search).get("type") || "";
+        setTypeFilter(typeFilter);
         const url =
           "https://raw.githubusercontent.com/Crystopia/Content/refs/heads/main/website/guide/guidelist.json";
         const response = await fetch(url);
