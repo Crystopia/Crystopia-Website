@@ -30,8 +30,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [theme, setTheme] = useState("dark");
+
   useEffect(() => {
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("dark", theme === theme);
   });
 
   return (
