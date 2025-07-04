@@ -64,6 +64,7 @@ const TeamCard: React.FC = () => {
         </p>
       </div>
 
+      {/* <p className="text-red-500 bg-red-500 text-red-400 bg-red-400 bg-pink-400 text-pink-400 bg-blue-400 text-blue-400"></p> */}
       {/* Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -83,11 +84,11 @@ const TeamCard: React.FC = () => {
                 <h3 className={`text-xl font-semibold ${member.textcolor}`}>
                   {member.name}
                 </h3>
-                <span
-                  className={`${member.bgColor} text-white px-3 py-1 rounded-full text-sm mt-2`}
+                <h4
+                  className={`${member.bgColor} text-white px-3 py-1 rounded-full text-sm mt-2 font-semibold text-center shadow-md`}
                 >
                   {member.title}
-                </span>
+                </h4>
                 <p className="mt-4 text-gray-400 text-sm leading-relaxed">
                   {member.description}
                 </p>

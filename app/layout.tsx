@@ -12,6 +12,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "../styles/font.css";
 import "../styles/LoadingScreen.css";
+import { Github, GithubIcon, LucideGithub } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home", icon: "/icons/home.png" },
@@ -29,11 +30,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]);
+    document.documentElement.classList.toggle("dark");
+  });
 
   return (
     <html lang="en">
@@ -169,6 +168,14 @@ export default function RootLayout({
                 <Image
                   src="/icons/youtube.png"
                   alt="YouTube"
+                  width={20}
+                  height={20}
+                />
+              </Link>
+              <Link href="https://github.com/Crystopia" target="_blank">
+                <Image
+                  src="/icons/github.png"
+                  alt="GitHub"
                   width={20}
                   height={20}
                 />
