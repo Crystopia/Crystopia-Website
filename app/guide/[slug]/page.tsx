@@ -50,6 +50,8 @@ const HomePage: NextPage = () => {
                 setLang(userLang)
                 setPosts(data);
 
+                const guideSlug = window.location.pathname.split("/").pop()
+                const guide = guideSlug ? data.find((g) => g.slug === guideSlug) : null;
 
                 const fallbackGuide: Guide = {
                     title: "Welcome to Crystopia",
@@ -62,7 +64,7 @@ const HomePage: NextPage = () => {
                     en: "https://raw.githubusercontent.com/Crystopia/Content/refs/heads/main/website/guide/index-en.mdx",
                 };
 
-                const selected = fallbackGuide;
+                const selected = guide || fallbackGuide;
                 setSelectedGuide(selected);
                 await loadGuideContent(selected, userLang);
 
@@ -75,9 +77,9 @@ const HomePage: NextPage = () => {
         fetchPosts();
     }, []);
 
-    const loadGuideContent = async (guide: Guide, lang: string) => {
+    const loadGuideContent = async (guide: Guide, language: string) => {
         try {
-            const url = lang == "de" ? guide.de : guide.en;
+            const url = language === "de" ? guide.de : guide.en;
             const response = await fetch(url);
             if (!response.ok)
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -89,16 +91,17 @@ const HomePage: NextPage = () => {
             setSelectedGuideContent("");
         }
     };
-    const toggleType = (type: string) =>
-        setExpandedTypes((prev) =>
-            prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-        )
 
     const groupedPosts = posts.reduce((acc: Record<string, Guide[]>, post) => {
         acc[post.type] = acc[post.type] || [];
         acc[post.type].push(post);
         return acc;
     }, {});
+
+    const toggleType = (type: string) =>
+        setExpandedTypes((prev) =>
+            prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+        );
 
     if (loading) {
         return <Loading></Loading>
