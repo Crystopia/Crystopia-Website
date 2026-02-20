@@ -24,7 +24,7 @@ export default function PlayPage() {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("cytooxien.net").then(() => {
+    navigator.clipboard.writeText("crystopia.net").then(() => {
       toast("Copied IP to clipboard", { type: "success" });
     });
   };
